@@ -93,6 +93,7 @@ plugins=(
     z
     # web-search
     starship
+    pnpm-shell-completion # https://github.com/g-plane/pnpm-shell-completion
 )
 
 # timer plugin
@@ -102,6 +103,9 @@ plugins=(
 # bindkey -M menuselect '\r' .accept-line
 
 source $ZSH/oh-my-zsh.sh
+
+zstyle ':autocomplete:*' insert-unambiguous yes
+zstyle ':autocomplete:*' widget-style menu-select
 
 # User configuration
 
@@ -256,4 +260,17 @@ export PATH="$HOME/.local/bin:$PATH"
 
 export JAVA_HOME="/usr/lib/jvm/java-21-openjdk"
 # export PATH="$JAVA_HOME/bin:$PATH"
+
+
+# Disable shared history
+unsetopt SHARE_HISTORY
+unsetopt INC_APPEND_HISTORY
+unsetopt INC_APPEND_HISTORY_TIME
+
+# Optional: enable history per session
+setopt HIST_IGNORE_DUPS  # Ignore duplicates
+setopt HIST_IGNORE_SPACE # Ignore commands starting with space
+
+
+export EDITOR="code --goto"
 

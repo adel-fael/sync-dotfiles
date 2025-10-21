@@ -1,6 +1,6 @@
 [user]
-	name = adell-fael
-	email = adel0fael@gmail.com
+	name = adelefaell
+	email = adelefaell@gmail.com
 [alias]
 	ac = !git add . && git commit -m
 	st = status
@@ -33,6 +33,10 @@
 	uncommit = reset --soft HEAD~1
 	# Remove file(s) from Git but not from disk
 	untrack = rm --cache --
+	# git push
+  gpu = "!git push -u origin HEAD"
+	# git pull
+  gpl = "!git pull -u origin HEAD"
 [color]
 	ui = true
 [help]
