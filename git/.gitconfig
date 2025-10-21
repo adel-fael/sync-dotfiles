@@ -33,10 +33,6 @@
 	uncommit = reset --soft HEAD~1
 	# Remove file(s) from Git but not from disk
 	untrack = rm --cache --
-	# git push
-  gpu = "!git push -u origin HEAD"
-	# git pull
-  gpl = "!git pull -u origin HEAD"
 [color]
 	ui = true
 [help]
