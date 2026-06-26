@@ -42,8 +42,8 @@ eval "$(starship init zsh)"
 
 
 # Aliases
-alias zshconfig="code ~/.zshrc"
-alias gitconfig="code ~/.gitconfig"
+alias zshconfig="nvim ~/.zshrc"
+alias gitconfig="nvim ~/.gitconfig"
 
 alias pn="pnpm"
 alias c="clear"
