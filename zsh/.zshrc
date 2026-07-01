@@ -56,8 +56,11 @@ alias vpnup="sudo systemctl start wg-quick@wg0"
 alias vpndown="sudo systemctl stop wg-quick@wg0"
 alias vpnstatus="sudo wg show"
 
-alias zed="zeditor"
+# Omarchy arch
+# alias zed="zeditor"
 
+# Fedora: Force zsh to ignore all system lookups and run the exact binary
+alias zed="command \$HOME/.local/bin/zed"
 
 # pnpm
 export PNPM_HOME="$HOME/.local/share/pnpm"
@@ -70,17 +73,15 @@ esac
 
 # Android SDK
 export ANDROID_HOME="$HOME/Android/Sdk"
+export JAVA_HOME="/usr/lib/jvm/java-21-temurin-jdk"
 
+export PATH="$JAVA_HOME/bin:$PATH"
 export PATH="$PATH:$ANDROID_HOME/platform-tools"
 export PATH="$PATH:$ANDROID_HOME/cmdline-tools/latest/bin"
 
 
 # Local binaries
 export PATH="$PATH:$HOME/.local/bin"
-
-
-# Console Ninja
-export PATH="$HOME/.console-ninja/.bin:$PATH"
 
 
 # Opencode
