@@ -1,0 +1,15 @@
+# Git aliases/completions
+ohmyzsh/ohmyzsh path:plugins/git
+
+# sudo !!
+ohmyzsh/ohmyzsh path:plugins/sudo
+
+
+# autosuggestions
+zsh-users/zsh-autosuggestions
+
+# syntax highlighting
+zdharma-continuum/fast-syntax-highlighting
+
+# autocomplete
+marlonrichert/zsh-autocomplete

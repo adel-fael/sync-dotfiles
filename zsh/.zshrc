@@ -1,34 +1,9 @@
-# Path to oh-my-zsh
-export ZSH="$HOME/.oh-my-zsh"
+autoload -Uz compinit
+compinit -d ~/.zcompdump
 
-# Theme
-# ZSH_THEME="robbyrussell"
+source ~/.antidote/antidote.zsh
 
-
-# Plugins
-plugins=(
-    git
-    zsh-autosuggestions
-    fast-syntax-highlighting
-    z
-    sudo
-    copypath
-    copyfile
-    zsh-autocomplete
-
-    # Heavy plugins disabled for faster startup:
-    # nvm
-    # npm
-    # bun
-    # react-native
-    # vscode
-    # starship
-
-    # Duplicate syntax highlighter:
-    # zsh-syntax-highlighting
-)
-
-source $ZSH/oh-my-zsh.sh
+antidote load ~/.zsh_plugins.txt
 
 
 # Completion settings
@@ -62,6 +37,8 @@ alias vpnstatus="sudo wg show"
 # Fedora: Force zsh to ignore all system lookups and run the exact binary
 alias zed="command \$HOME/.local/bin/zed"
 
+alias ip_json="curl ifconfig.co/json"
+
 # pnpm
 export PNPM_HOME="$HOME/.local/share/pnpm"
 
@@ -87,21 +64,6 @@ export PATH="$PATH:$HOME/.local/bin"
 # Opencode
 export PATH="$HOME/.opencode/bin:$PATH"
 
-# Lazy load nvm + auto use .nvmrc
-export NVM_DIR="$HOME/.nvm"
-
-nvm() {
-    unset -f nvm
-
-    [ -s "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh"
-
-    if [ -f ".nvmrc" ]; then
-        nvm use
-    fi
-
-    nvm "$@"
-}
-
 # History
 unsetopt SHARE_HISTORY
 unsetopt INC_APPEND_HISTORY
@@ -113,3 +75,23 @@ setopt HIST_IGNORE_SPACE
 
 # Editor
 export EDITOR="nvim"
+
+
+# z 
+eval "$(zoxide init zsh)" 
+
+# Copy current working directory
+alias copypath='pwd | wl-copy'
+
+# Copy file contents
+copyfile() {
+    [[ -f "$1" ]] || {
+        echo "Usage: copyfile <file>"
+        return 1
+    }
+    wl-copy < "$1"
+}
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

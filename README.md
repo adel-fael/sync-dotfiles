@@ -1,39 +1,79 @@
-1. Install: stow, git
-   - **Fedora:** `sudo dnf install stow git`
-   - **Arch/Omarchy:** `sudo pacman -S stow git`
-2. navigate to Home directory and clone this repo and rename it to `.dotfiles` 
-3. to give permission to run the script: 
-    
-    ```bash
-    chmod +x $HOME/.dotfiles/.bin/sync-dotfiles
-    ```
-    *verify permission*
-    
-    ```bash
-    ls -l $HOME/.dotfiles/.bin/sync-dotfiles
-    ```
-4. install `zsh` and `oh-my-zsh`
-   - **Fedora:** `sudo dnf install zsh` then `sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"`
-   - **Arch/Omarchy:** `sudo pacman -S zsh` then `sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"`
-5. make zsh default shell:
-    ```bash
-    chsh -s $(which zsh)
-    ```
-6. also download these https://gist.github.com/n1snt/454b879b8f0b7995740ae04c5fb5b7df to complete the zsh
-7. install [starship.rs](https://starship.rs/guide/)
-8. install your preferred terminal: ghostty, alacritty, kitty, or foot
-9. after running the script the files will populate and linked automatically
-    
-    ---
+# Setup
 
-## structure 
+1. Install the required packages:
+   - **Fedora**
+     ```bash
+     sudo dnf install git stow zsh
+     ```
+   - **Arch / Omarchy**
+     ```bash
+     sudo pacman -S git stow zsh
+     ```
 
-in the home directory 
+2. Clone this repository into your home directory and name it `.dotfiles`:
 
-```bash
+   ```bash
+   cd ~
+   git clone <your-repository-url> .dotfiles
+   ```
+
+3. Install Antidote:
+
+   ```bash
+   git clone --depth=1 https://github.com/mattmc3/antidote.git ~/.antidote
+   ```
+
+4. Make Zsh your default shell:
+
+   ```bash
+   chsh -s "$(which zsh)"
+   ```
+
+   Log out and back in (or reboot) for the change to take effect.
+
+5. Make the sync script executable:
+
+   ```bash
+   chmod +x ~/.dotfiles/.bin/sync-dotfiles
+   ```
+
+   Verify:
+
+   ```bash
+   ls -l ~/.dotfiles/.bin/sync-dotfiles
+   ```
+
+6. Install the required Zsh completions:
+
+   https://gist.github.com/n1snt/454b879b8f0b7995740ae04c5fb5b7df
+
+7. Install Starship:
+
+   https://starship.rs/guide/
+
+8. Install your preferred terminal (recommended):
+   - Ghostty
+   - Kitty
+   - Alacritty
+   - Foot
+
+9. Run the sync script:
+
+   ```bash
+   ~/.dotfiles/.bin/sync-dotfiles
+   ```
+
+   This will create the required symlinks using GNU Stow.
+
+---
+
+# Repository Structure
+
+```text
 .dotfiles/
-    ---- .bin
-    ---- git
-    ---- rest
+├── .bin/
+├── config/
+├── git/
+├── zsh/
+└── README.md
 ```
-
