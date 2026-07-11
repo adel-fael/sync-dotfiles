@@ -5,11 +5,15 @@ ohmyzsh/ohmyzsh path:plugins/git
 ohmyzsh/ohmyzsh path:plugins/sudo
 
 
-# autosuggestions
+# add fish-like features
+zsh-users/zsh-syntax-highlighting
 zsh-users/zsh-autosuggestions
+zsh-users/zsh-history-substring-search
 
-# syntax highlighting
-zdharma-continuum/fast-syntax-highlighting
 
-# autocomplete
-marlonrichert/zsh-autocomplete
+sindresorhus/pure   # enhance your prompt
+
+# you can even use Oh My Zsh plugins
+getantidote/use-omz
+ohmyzsh/ohmyzsh path:lib
+ohmyzsh/ohmyzsh path:plugins/extract
